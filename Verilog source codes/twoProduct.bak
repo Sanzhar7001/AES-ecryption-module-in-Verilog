@@ -1,0 +1,22 @@
+module twoProduct(
+input reg [7:0] Byte_i,
+output reg [7:0] productByte_o
+);
+
+//2*XX > 100 (in hex)
+//XX > 79 if Byte_i is bigger than 79
+//then there is an overshoot
+//for the over shoot case:
+//we xor it with 100011011
+//it's an irreducible polynomial in
+//GF(2^8)  
+
+always@(*)
+begin
+	if (Byte_i<8'h79)
+		productByte_o = Byte_i*8'h02;
+	else
+		productByte_o = (Byte_i*8'h02)^9'h11B;
+end
+
+endmodule

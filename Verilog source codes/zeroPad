@@ -1,0 +1,28 @@
+module zeroPad(
+input reg [127:0] i_data,
+input clk,
+output reg [127:0] o_data
+);
+
+wire [127:0] const;
+assign const = 8'h10<<120;
+
+reg [127:0] r;
+always@(i_data)
+	r = i_data;
+
+always@(posedge clk)
+begin
+	if(const >= r)
+	begin
+		r = {r,8'h0};
+	end
+	else
+	begin
+		o_data = r;
+	end
+end
+
+
+
+endmodule

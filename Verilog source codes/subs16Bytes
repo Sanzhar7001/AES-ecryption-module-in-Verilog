@@ -1,0 +1,114 @@
+module subs16Bytes(
+input reg [127:0] Mat_i,
+output reg [127:0] subsMat_o
+);
+
+//Dividing the input into 16 wires each of 1 byte
+wire [7:0] w1;
+wire [7:0] w2;
+wire [7:0] w3;
+wire [7:0] w4;
+wire [7:0] w5;
+wire [7:0] w6;
+wire [7:0] w7;
+wire [7:0] w8;
+wire [7:0] w9;
+wire [7:0] w10;
+wire [7:0] w11;
+wire [7:0] w12;
+wire [7:0] w13;
+wire [7:0] w14;
+wire [7:0] w15;
+wire [7:0] w16;
+
+assign {w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16} = Mat_i; 
+
+//16 wires that will built the output
+wire [7:0] o1;
+wire [7:0] o2;
+wire [7:0] o3;
+wire [7:0] o4;
+wire [7:0] o5;
+wire [7:0] o6;
+wire [7:0] o7;
+wire [7:0] o8;
+wire [7:0] o9;
+wire [7:0] o10;
+wire [7:0] o11;
+wire [7:0] o12;
+wire [7:0] o13;
+wire [7:0] o14;
+wire [7:0] o15;
+wire [7:0] o16;
+
+
+
+//bunch of subsByte modules in parallel
+subsByte sB1(
+.byte_i(w1),
+.subsByte_o(o1)
+);
+subsByte sB2(
+.byte_i(w2),
+.subsByte_o(o2)
+);
+subsByte sB3(
+.byte_i(w3),
+.subsByte_o(o3)
+);
+subsByte sB4(
+.byte_i(w4),
+.subsByte_o(o4)
+);
+subsByte sB5(
+.byte_i(w5),
+.subsByte_o(o5)
+);
+subsByte sB6(
+.byte_i(w6),
+.subsByte_o(o6)
+);
+subsByte sB7(
+.byte_i(w7),
+.subsByte_o(o7)
+);
+subsByte sB8(
+.byte_i(w8),
+.subsByte_o(o8)
+);
+subsByte sB9(
+.byte_i(w9),
+.subsByte_o(o9)
+);
+subsByte sB10(
+.byte_i(w10),
+.subsByte_o(o10)
+);
+subsByte sB11(
+.byte_i(w11),
+.subsByte_o(o11)
+);
+subsByte sB12(
+.byte_i(w12),
+.subsByte_o(o12)
+);
+subsByte sB13(
+.byte_i(w13),
+.subsByte_o(o13)
+);
+subsByte sB14(
+.byte_i(w14),
+.subsByte_o(o14)
+);
+subsByte sB15(
+.byte_i(w15),
+.subsByte_o(o15)
+);
+subsByte sB16(
+.byte_i(w16),
+.subsByte_o(o16)
+);
+
+always@(*)
+	subsMat_o = {o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12,o13,o14,o15,o16};
+endmodule

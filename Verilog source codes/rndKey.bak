@@ -1,0 +1,35 @@
+module rndKey #(parameter RND_CONST = 8'h10)(
+input reg [127:0] rndKey_i,
+output reg [127:0] newRndKey_o
+);
+
+//divide the input key into vectors
+wire [31:0] w0;
+wire [31:0] w1;
+wire [31:0] w2;
+wire [31:0] w3;
+
+assign {w0,w1,w2,w3} = rndKey_i;
+
+//wires for the next round key
+wire [31:0] w4;
+wire [31:0] w5;
+wire [31:0] w6;
+wire [31:0] w7;
+wire [31:0] o3;
+
+
+g #(.RND_CONST(RND_CONST))g1(
+.vec_i(w3),
+.gvec_o(o3)
+);
+
+assign w4 = w0^o3;
+assign w5 = w4^w1;
+assign w6 = w5^w2;
+assign w7 = w6^w3;
+
+always@(*)
+	newRndKey_o = {w4,w5,w6,w7};
+
+endmodule 

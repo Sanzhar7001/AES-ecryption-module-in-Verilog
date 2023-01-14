@@ -1,0 +1,38 @@
+module invMixCol(
+input reg [127:0] mat_i,
+output reg [127:0] mixMat_o
+);
+
+wire [31:0] v1;
+wire [31:0] v2;
+wire [31:0] v3;
+wire [31:0] v4;
+
+assign {v1,v2,v3,v4} = mat_i; 
+
+wire [31:0] o1;
+wire [31:0] o2;
+wire [31:0] o3;
+wire [31:0] o4;
+
+n_invMixVec mV1(
+.vec_i(v1),
+.invMixVec_o(o1)
+);
+n_invMixVec mV2(
+.vec_i(v2),
+.invMixVec_o(o2)
+);
+n_invMixVec mV3(
+.vec_i(v3),
+.invMixVec_o(o3)
+);
+n_invMixVec mV4(
+.vec_i(v4),
+.invMixVec_o(o4)
+);
+
+always@(*)
+ 	mixMat_o = {o1,o2,o3,o4};
+
+endmodule

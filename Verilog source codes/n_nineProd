@@ -1,0 +1,26 @@
+module n_nineProd(
+input reg [7:0] Byte_i,
+output reg [7:0] prodByte_o
+);
+
+wire [7:0] w1,w2,w3;
+
+twoProduct tp1(
+.Byte_i(Byte_i),
+.productByte_o(w1)
+);
+
+twoProduct tp2(
+.Byte_i(w1),
+.productByte_o(w2)
+);
+
+twoProduct tp3(
+.Byte_i(w2),
+.productByte_o(w3)
+);
+
+always@(*)
+	prodByte_o = w3^Byte_i;
+
+endmodule

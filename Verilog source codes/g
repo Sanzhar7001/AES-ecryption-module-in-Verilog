@@ -1,0 +1,55 @@
+module g #(parameter RND_CONST = 8'h20)(
+input reg [31:0] vec_i,
+output reg [31:0] gvec_o
+);
+
+//dividing the vector into bytes
+wire [7:0] w1;
+wire [7:0] w2;
+wire [7:0] w3;
+wire [7:0] w4;
+
+assign {w1,w2,w3,w4} = vec_i; 
+
+//output wires for subsBytes
+wire [7:0] o1;
+wire [7:0] o2;
+wire [7:0] o3;
+wire [7:0] o4;
+
+//Circularbyte rotation
+//as we can put bytes in any order 
+//we can dismiss the left shift for now
+//just keep in mind the order of the bytes
+//w2 wire will be the MSB byte
+
+//byte substitution
+subsByte gsB1(
+.byte_i(w1),
+.subsByte_o(o1)
+);
+subsByte gsB2(
+.byte_i(w2),
+.subsByte_o(o2)
+);
+subsByte gsB3(
+.byte_i(w3),
+.subsByte_o(o3)
+);
+subsByte gsB4(
+.byte_i(w4),
+.subsByte_o(o4)
+);
+
+//Adding(xor) the round constant 
+wire [7:0] o1m,o2m,o3m,o4m; 
+assign o2m = o2^RND_CONST;
+assign o1m = o1^8'h00;
+assign o3m = o3^8'h00;
+assign o4m = o4^8'h00;
+
+
+always@(*)
+	gvec_o = {o2m,o3m,o4m,o1m};
+
+endmodule

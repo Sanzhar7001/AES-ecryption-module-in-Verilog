@@ -1,0 +1,119 @@
+module n_invMixVec(
+input reg [31:0] vec_i,
+output reg [31:0] invMixVec_o
+);
+
+wire [7:0] w1;
+wire [7:0] w2;
+wire [7:0] w3;
+wire [7:0] w4;
+
+assign {w1,w2,w3,w4} = vec_i; 
+
+wire [7:0] o1;
+wire [7:0] o2;
+wire [7:0] o3;
+wire [7:0] o4;
+
+//o1
+wire [7:0] v1,v2,v3,v4;
+
+n_fourteenProd fp1(
+.Byte_i(w1),
+.prodByte(v1)
+);
+
+n_elevenProd ep1(
+.Byte_i(w2),
+.prodByte(v2)
+);
+
+n_thirteenProd tp1(
+.Byte_i(w3),
+.prodByte(v3)
+);
+
+n_nineProd np1(
+.Byte_i(w4),
+.prodByte(v4)
+);
+assign o1 = v1^v2^v3^v4;
+
+//o2
+wire [7:0] vv1,vv2,vv3,vv4;
+
+n_nineProd np2(
+.Byte_i(w1),
+.prodByte(vv1)
+);
+
+n_fourteenProd fp2(
+.Byte_i(w2),
+.prodByte(vv2)
+);
+
+n_elevenProd ep2(
+.Byte_i(w3),
+.prodByte(vv3)
+);
+
+n_thirteenProd tp2(
+.Byte_i(w4),
+.prodByte(vv4)
+);
+
+assign o2 = vv1^vv2^vv3^vv4;
+
+//o3
+wire [7:0] vvv1,vvv2,vvv3,vvv4;
+
+n_thirteenProd tp3(
+.Byte_i(w1),
+.prodByte(vvv1)
+);
+
+n_nineProd np3(
+.Byte_i(w2),
+.prodByte(vvv2)
+);
+
+n_fourteenProd fp3(
+.Byte_i(w3),
+.prodByte(vvv3)
+);
+
+n_elevenProd ep3(
+.Byte_i(w4),
+.prodByte(vvv4)
+);
+assign o3 = vvv1^vvv2^vvv3^vvv4;
+
+//o4
+wire [7:0] vvvv1,vvvv2,vvvv3,vvvv4;
+
+n_elevenProd ep4(
+.Byte_i(w1),
+.prodByte(vvvv1)
+);
+
+n_thirteenProd tp4(
+.Byte_i(w2),
+.prodByte(vvvv2)
+);
+
+n_nineProd np4(
+.Byte_i(w3),
+.prodByte(vvvv3)
+);
+
+n_fourteenProd fp4(
+.Byte_i(w4),
+.prodByte(vvvv4)
+);
+
+assign o4 = vvvv1^vvvv2^vvvv3^vvvv4;
+
+always@(*)
+	invMixVec_o = {o1,o2,o3,o4};
+
+endmodule

@@ -1,0 +1,108 @@
+`timescale 1ns/1ps
+module tb();
+
+reg clock;
+
+integer fptr;
+integer fptr1;
+integer fptr2;
+integer fptr3;
+
+reg [127:0] testMessage;
+reg [127:0] testKey;
+wire [127:0] testEncryptionOutput;
+wire [127:0] testDecryptionOutput;
+
+wire [127:0] paddingLag;
+
+initial
+begin
+    clock = 0;
+    forever
+    begin
+    	clock = !clock;
+    	#5;
+    end
+end
+
+initial
+begin
+     
+     	fptr = $fopen("testMessage.txt","r");
+     	fptr1 = $fopen("testKey.txt","r");
+     	fptr2 = $fopen("testEncryptionOutput.txt","w");
+     	fptr3 = $fopen("testDecryptionOutput.txt","w");
+     
+     	testMessage = 0;
+    	testKey = 0;
+	
+	$fscanf(fptr,"%h\n",testMessage);
+	$fscanf(fptr1,"%h\n",testKey);
+end
+
+initial
+forever
+begin
+	@(testDecryptionOutput);
+	begin
+	$fscanf(fptr,"%h\n",testMessage);
+	$fscanf(fptr1,"%h\n",testKey);
+	end
+	if (testMessage)
+	begin
+		$fclose(fptr);
+		$fclose(fptr1);
+		#500;
+		$display("C",$time);
+		$fclose(fptr2);
+		$fclose(fptr3);
+		$stop;
+	end
+	else if (testKey)
+	begin
+		$fclose(fptr);
+		$fclose(fptr1);
+		#500;
+		$fclose(fptr2);
+		$fclose(fptr3);
+		$display("D",$time);
+		$stop;
+	end
+end
+
+
+encAES eA(
+.message(testMessage),
+.key(testKey),
+.clk(clock),
+.cipherMes(testEncryptionOutput)
+);
+
+decAES dA(
+.cipherMes(testEncryptionOutput),
+.key(testKey),
+.clk(clock),
+.message(testDecryptionOutput)
+);
+
+zeroPad zP(
+.i_data(testKey),
+.clk(clock),
+.o_data(paddingLag)
+);
+
+always@(testEncryptionOutput)
+begin
+	$fwrite(fptr2,"%h\n",testEncryptionOutput);
+end
+
+always@(testDecryptionOutput)
+begin
+	$display("A",$time);
+	$fwrite(fptr3,"%h\n",testDecryptionOutput);
+	@(paddingLag);
+	#110;
+	$display("B",$time);
+end
+
+endmodule

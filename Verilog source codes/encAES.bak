@@ -1,0 +1,93 @@
+module encAES(
+input reg [127:0] message,
+input reg [127:0] paddedKey,
+input clk,
+output reg [127:0] cipherMes
+);
+
+//Padding of zeros for small input numbers
+wire [127:0] paddedMessage;
+zeroPad zp1(
+.i_data(message),
+.clk(clk),
+.o_data(paddedMessage)
+);
+
+//wire [127:0] paddedKey;
+//zeroPad zp2(
+//.i_data(key),
+//.clk(clk),
+//.o_data(paddedKey)
+//);
+
+//counter setting
+reg [3:0] counter;
+always@(paddedMessage,paddedKey)
+begin
+	counter = 4'd1;
+end
+
+//key expansion
+wire [127:0] rnd1Key,rnd2Key,rnd3Key,rnd4Key,rnd5Key,rnd6Key,rnd7Key,rnd8Key,rnd9Key,rnd10Key;
+
+KeyExp ke(
+.Key_i(paddedKey),
+.rnd1Key_o(rnd1Key),
+.rnd2Key_o(rnd2Key),
+.rnd3Key_o(rnd3Key),
+.rnd4Key_o(rnd4Key),
+.rnd5Key_o(rnd5Key),
+.rnd6Key_o(rnd6Key),
+.rnd7Key_o(rnd7Key),
+.rnd8Key_o(rnd8Key),
+.rnd9Key_o(rnd9Key),
+.rnd10Key_o(rnd10Key)
+);
+
+
+
+//round 0
+reg [127:0] stateMat;
+always@(paddedMessage,paddedKey)
+	stateMat = paddedMessage^paddedKey;
+
+
+//round 1-9
+wire [127:0] stateMat1,stateMat2,stateMat3,rndKey;
+
+subs16Bytes sB(.Mat_i(stateMat),.subsMat_o(stateMat1));
+
+shiftRows sR(.shiftMatrix_i(stateMat1),.shiftMatrix_o(stateMat2));
+
+mixCol mC(.mat_i(stateMat2),.mixMat_o(stateMat3));
+
+slctKey sK(
+.counter(counter),
+.rnd1Key(rnd1Key), 
+.rnd2Key(rnd2Key),
+.rnd3Key(rnd3Key),
+.rnd4Key(rnd4Key),
+.rnd5Key(rnd5Key),
+.rnd6Key(rnd6Key),
+.rnd7Key(rnd7Key),
+.rnd8Key(rnd8Key),
+.rnd9Key(rnd9Key),
+.rnd10Key(rnd10Key),
+.rndKey(rndKey));
+
+
+
+always@(posedge clk)
+begin
+	if (counter < 4'd10)
+	begin
+		counter = counter + 4'd1;
+
+		stateMat = stateMat3^rndKey;
+	end
+	//round 10
+	else if (counter == 4'd10)
+		cipherMes = stateMat2^rndKey;
+end
+
+endmodule

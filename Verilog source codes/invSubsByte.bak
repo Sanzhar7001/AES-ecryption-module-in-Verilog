@@ -1,0 +1,524 @@
+module invSubsByte(
+input reg [7:0] byte_i,
+output reg [7:0] subsByte_o
+);
+
+always @(*)
+begin
+else if (byte_i==8'h0)
+  subsByte_o = 8'h52;
+else if (byte_i==8'h1)
+  subsByte_o = 8'h9;
+else if (byte_i==8'h2)
+  subsByte_o = 8'h6A;
+else if (byte_i==8'h3)
+  subsByte_o = 8'hD5;
+else if (byte_i==8'h4)
+  subsByte_o = 8'h30;
+else if (byte_i==8'h5)
+  subsByte_o = 8'h36;
+else if (byte_i==8'h6)
+  subsByte_o = 8'hA5;
+else if (byte_i==8'h7)
+  subsByte_o = 8'h38;
+else if (byte_i==8'h8)
+  subsByte_o = 8'hBF;
+else if (byte_i==8'h9)
+  subsByte_o = 8'h40;
+else if (byte_i==8'hA)
+  subsByte_o = 8'hA3;
+else if (byte_i==8'hB)
+  subsByte_o = 8'h9E;
+else if (byte_i==8'hC)
+  subsByte_o = 8'h81;
+else if (byte_i==8'hD)
+  subsByte_o = 8'hF3;
+else if (byte_i==8'hE)
+  subsByte_o = 8'hD7;
+else if (byte_i==8'hF)
+  subsByte_o = 8'hFB;
+else if (byte_i==8'h10)
+  subsByte_o = 8'h7C;
+else if (byte_i==8'h11)
+  subsByte_o = 8'hE3;
+else if (byte_i==8'h12)
+  subsByte_o = 8'h39;
+else if (byte_i==8'h13)
+  subsByte_o = 8'h82;
+else if (byte_i==8'h14)
+  subsByte_o = 8'h9B;
+else if (byte_i==8'h15)
+  subsByte_o = 8'h2F;
+else if (byte_i==8'h16)
+  subsByte_o = 8'hFF;
+else if (byte_i==8'h17)
+  subsByte_o = 8'h87;
+else if (byte_i==8'h18)
+  subsByte_o = 8'h34;
+else if (byte_i==8'h19)
+  subsByte_o = 8'h8E;
+else if (byte_i==8'h1A)
+  subsByte_o = 8'h43;
+else if (byte_i==8'h1B)
+  subsByte_o = 8'h44;
+else if (byte_i==8'h1C)
+  subsByte_o = 8'hC4;
+else if (byte_i==8'h1D)
+  subsByte_o = 8'hDE;
+else if (byte_i==8'h1E)
+  subsByte_o = 8'hE9;
+else if (byte_i==8'h1F)
+  subsByte_o = 8'hCB;
+else if (byte_i==8'h20)
+  subsByte_o = 8'h54;
+else if (byte_i==8'h21)
+  subsByte_o = 8'h7B;
+else if (byte_i==8'h22)
+  subsByte_o = 8'h94;
+else if (byte_i==8'h23)
+  subsByte_o = 8'h32;
+else if (byte_i==8'h24)
+  subsByte_o = 8'hA6;
+else if (byte_i==8'h25)
+  subsByte_o = 8'hC2;
+else if (byte_i==8'h26)
+  subsByte_o = 8'h23;
+else if (byte_i==8'h27)
+  subsByte_o = 8'h3D;
+else if (byte_i==8'h28)
+  subsByte_o = 8'hEE;
+else if (byte_i==8'h29)
+  subsByte_o = 8'h4C;
+else if (byte_i==8'h2A)
+  subsByte_o = 8'h95;
+else if (byte_i==8'h2B)
+  subsByte_o = 8'hB;
+else if (byte_i==8'h2C)
+  subsByte_o = 8'h42;
+else if (byte_i==8'h2D)
+  subsByte_o = 8'hFA;
+else if (byte_i==8'h2E)
+  subsByte_o = 8'hC3;
+else if (byte_i==8'h2F)
+  subsByte_o = 8'h4E;
+else if (byte_i==8'h30)
+  subsByte_o = 8'h8;
+else if (byte_i==8'h31)
+  subsByte_o = 8'h2E;
+else if (byte_i==8'h32)
+  subsByte_o = 8'hA1;
+else if (byte_i==8'h33)
+  subsByte_o = 8'h66;
+else if (byte_i==8'h34)
+  subsByte_o = 8'h28;
+else if (byte_i==8'h35)
+  subsByte_o = 8'hD9;
+else if (byte_i==8'h36)
+  subsByte_o = 8'h24;
+else if (byte_i==8'h37)
+  subsByte_o = 8'hB2;
+else if (byte_i==8'h38)
+  subsByte_o = 8'h76;
+else if (byte_i==8'h39)
+  subsByte_o = 8'h5B;
+else if (byte_i==8'h3A)
+  subsByte_o = 8'hA2;
+else if (byte_i==8'h3B)
+  subsByte_o = 8'h49;
+else if (byte_i==8'h3C)
+  subsByte_o = 8'h6D;
+else if (byte_i==8'h3D)
+  subsByte_o = 8'h8B;
+else if (byte_i==8'h3E)
+  subsByte_o = 8'hD1;
+else if (byte_i==8'h3F)
+  subsByte_o = 8'h25;
+else if (byte_i==8'h40)
+  subsByte_o = 8'h72;
+else if (byte_i==8'h41)
+  subsByte_o = 8'hF8;
+else if (byte_i==8'h42)
+  subsByte_o = 8'hF6;
+else if (byte_i==8'h43)
+  subsByte_o = 8'h64;
+else if (byte_i==8'h44)
+  subsByte_o = 8'h86;
+else if (byte_i==8'h45)
+  subsByte_o = 8'h68;
+else if (byte_i==8'h46)
+  subsByte_o = 8'h98;
+else if (byte_i==8'h47)
+  subsByte_o = 8'h16;
+else if (byte_i==8'h48)
+  subsByte_o = 8'hD4;
+else if (byte_i==8'h49)
+  subsByte_o = 8'hA4;
+else if (byte_i==8'h4A)
+  subsByte_o = 8'h5C;
+else if (byte_i==8'h4B)
+  subsByte_o = 8'hCC;
+else if (byte_i==8'h4C)
+  subsByte_o = 8'h5D;
+else if (byte_i==8'h4D)
+  subsByte_o = 8'h65;
+else if (byte_i==8'h4E)
+  subsByte_o = 8'hB6;
+else if (byte_i==8'h4F)
+  subsByte_o = 8'h92;
+else if (byte_i==8'h50)
+  subsByte_o = 8'h6C;
+else if (byte_i==8'h51)
+  subsByte_o = 8'h70;
+else if (byte_i==8'h52)
+  subsByte_o = 8'h48;
+else if (byte_i==8'h53)
+  subsByte_o = 8'h50;
+else if (byte_i==8'h54)
+  subsByte_o = 8'hFD;
+else if (byte_i==8'h55)
+  subsByte_o = 8'hED;
+else if (byte_i==8'h56)
+  subsByte_o = 8'hB9;
+else if (byte_i==8'h57)
+  subsByte_o = 8'hDA;
+else if (byte_i==8'h58)
+  subsByte_o = 8'h5E;
+else if (byte_i==8'h59)
+  subsByte_o = 8'h15;
+else if (byte_i==8'h5A)
+  subsByte_o = 8'h46;
+else if (byte_i==8'h5B)
+  subsByte_o = 8'h57;
+else if (byte_i==8'h5C)
+  subsByte_o = 8'hA7;
+else if (byte_i==8'h5D)
+  subsByte_o = 8'h8D;
+else if (byte_i==8'h5E)
+  subsByte_o = 8'h9D;
+else if (byte_i==8'h5F)
+  subsByte_o = 8'h84;
+else if (byte_i==8'h60)
+  subsByte_o = 8'h90;
+else if (byte_i==8'h61)
+  subsByte_o = 8'hD8;
+else if (byte_i==8'h62)
+  subsByte_o = 8'hAB;
+else if (byte_i==8'h63)
+  subsByte_o = 8'h0;
+else if (byte_i==8'h64)
+  subsByte_o = 8'h8C;
+else if (byte_i==8'h65)
+  subsByte_o = 8'hBC;
+else if (byte_i==8'h66)
+  subsByte_o = 8'hD3;
+else if (byte_i==8'h67)
+  subsByte_o = 8'hA;
+else if (byte_i==8'h68)
+  subsByte_o = 8'hF7;
+else if (byte_i==8'h69)
+  subsByte_o = 8'hE4;
+else if (byte_i==8'h6A)
+  subsByte_o = 8'h58;
+else if (byte_i==8'h6B)
+  subsByte_o = 8'h5;
+else if (byte_i==8'h6C)
+  subsByte_o = 8'hB8;
+else if (byte_i==8'h6D)
+  subsByte_o = 8'hB3;
+else if (byte_i==8'h6E)
+  subsByte_o = 8'h45;
+else if (byte_i==8'h6F)
+  subsByte_o = 8'h6;
+else if (byte_i==8'h70)
+  subsByte_o = 8'hD0;
+else if (byte_i==8'h71)
+  subsByte_o = 8'h2C;
+else if (byte_i==8'h72)
+  subsByte_o = 8'h1E;
+else if (byte_i==8'h73)
+  subsByte_o = 8'h8F;
+else if (byte_i==8'h74)
+  subsByte_o = 8'hCA;
+else if (byte_i==8'h75)
+  subsByte_o = 8'h3F;
+else if (byte_i==8'h76)
+  subsByte_o = 8'hF;
+else if (byte_i==8'h77)
+  subsByte_o = 8'h2;
+else if (byte_i==8'h78)
+  subsByte_o = 8'hC1;
+else if (byte_i==8'h79)
+  subsByte_o = 8'hAF;
+else if (byte_i==8'h7A)
+  subsByte_o = 8'hBD;
+else if (byte_i==8'h7B)
+  subsByte_o = 8'h3;
+else if (byte_i==8'h7C)
+  subsByte_o = 8'h1;
+else if (byte_i==8'h7D)
+  subsByte_o = 8'h13;
+else if (byte_i==8'h7E)
+  subsByte_o = 8'h8A;
+else if (byte_i==8'h7F)
+  subsByte_o = 8'h6B;
+else if (byte_i==8'h80)
+  subsByte_o = 8'h3A;
+else if (byte_i==8'h81)
+  subsByte_o = 8'h91;
+else if (byte_i==8'h82)
+  subsByte_o = 8'h11;
+else if (byte_i==8'h83)
+  subsByte_o = 8'h41;
+else if (byte_i==8'h84)
+  subsByte_o = 8'h4F;
+else if (byte_i==8'h85)
+  subsByte_o = 8'h67;
+else if (byte_i==8'h86)
+  subsByte_o = 8'hDC;
+else if (byte_i==8'h87)
+  subsByte_o = 8'hEA;
+else if (byte_i==8'h88)
+  subsByte_o = 8'h97;
+else if (byte_i==8'h89)
+  subsByte_o = 8'hF2;
+else if (byte_i==8'h8A)
+  subsByte_o = 8'hCF;
+else if (byte_i==8'h8B)
+  subsByte_o = 8'hCE;
+else if (byte_i==8'h8C)
+  subsByte_o = 8'hF0;
+else if (byte_i==8'h8D)
+  subsByte_o = 8'hB4;
+else if (byte_i==8'h8E)
+  subsByte_o = 8'hE6;
+else if (byte_i==8'h8F)
+  subsByte_o = 8'h73;
+else if (byte_i==8'h90)
+  subsByte_o = 8'h96;
+else if (byte_i==8'h91)
+  subsByte_o = 8'hAC;
+else if (byte_i==8'h92)
+  subsByte_o = 8'h74;
+else if (byte_i==8'h93)
+  subsByte_o = 8'h22;
+else if (byte_i==8'h94)
+  subsByte_o = 8'hE7;
+else if (byte_i==8'h95)
+  subsByte_o = 8'hAD;
+else if (byte_i==8'h96)
+  subsByte_o = 8'h35;
+else if (byte_i==8'h97)
+  subsByte_o = 8'h85;
+else if (byte_i==8'h98)
+  subsByte_o = 8'hE2;
+else if (byte_i==8'h99)
+  subsByte_o = 8'hF9;
+else if (byte_i==8'h9A)
+  subsByte_o = 8'h37;
+else if (byte_i==8'h9B)
+  subsByte_o = 8'hE8;
+else if (byte_i==8'h9C)
+  subsByte_o = 8'h1C;
+else if (byte_i==8'h9D)
+  subsByte_o = 8'h75;
+else if (byte_i==8'h9E)
+  subsByte_o = 8'hDF;
+else if (byte_i==8'h9F)
+  subsByte_o = 8'h6E;
+else if (byte_i==8'hA0)
+  subsByte_o = 8'h47;
+else if (byte_i==8'hA1)
+  subsByte_o = 8'hF1;
+else if (byte_i==8'hA2)
+  subsByte_o = 8'h1A;
+else if (byte_i==8'hA3)
+  subsByte_o = 8'h71;
+else if (byte_i==8'hA4)
+  subsByte_o = 8'h1D;
+else if (byte_i==8'hA5)
+  subsByte_o = 8'h29;
+else if (byte_i==8'hA6)
+  subsByte_o = 8'hC5;
+else if (byte_i==8'hA7)
+  subsByte_o = 8'h89;
+else if (byte_i==8'hA8)
+  subsByte_o = 8'h6F;
+else if (byte_i==8'hA9)
+  subsByte_o = 8'hB7;
+else if (byte_i==8'hAA)
+  subsByte_o = 8'h62;
+else if (byte_i==8'hAB)
+  subsByte_o = 8'hE;
+else if (byte_i==8'hAC)
+  subsByte_o = 8'hAA;
+else if (byte_i==8'hAD)
+  subsByte_o = 8'h18;
+else if (byte_i==8'hAE)
+  subsByte_o = 8'hBE;
+else if (byte_i==8'hAF)
+  subsByte_o = 8'h1B;
+else if (byte_i==8'hB0)
+  subsByte_o = 8'hFC;
+else if (byte_i==8'hB1)
+  subsByte_o = 8'h56;
+else if (byte_i==8'hB2)
+  subsByte_o = 8'h3E;
+else if (byte_i==8'hB3)
+  subsByte_o = 8'h4B;
+else if (byte_i==8'hB4)
+  subsByte_o = 8'hC6;
+else if (byte_i==8'hB5)
+  subsByte_o = 8'hD2;
+else if (byte_i==8'hB6)
+  subsByte_o = 8'h79;
+else if (byte_i==8'hB7)
+  subsByte_o = 8'h20;
+else if (byte_i==8'hB8)
+  subsByte_o = 8'h9A;
+else if (byte_i==8'hB9)
+  subsByte_o = 8'hDB;
+else if (byte_i==8'hBA)
+  subsByte_o = 8'hC0;
+else if (byte_i==8'hBB)
+  subsByte_o = 8'hFE;
+else if (byte_i==8'hBC)
+  subsByte_o = 8'h78;
+else if (byte_i==8'hBD)
+  subsByte_o = 8'hCD;
+else if (byte_i==8'hBE)
+  subsByte_o = 8'h5A;
+else if (byte_i==8'hBF)
+  subsByte_o = 8'hF4;
+else if (byte_i==8'hC0)
+  subsByte_o = 8'h1F;
+else if (byte_i==8'hC1)
+  subsByte_o = 8'hDD;
+else if (byte_i==8'hC2)
+  subsByte_o = 8'hA8;
+else if (byte_i==8'hC3)
+  subsByte_o = 8'h33;
+else if (byte_i==8'hC4)
+  subsByte_o = 8'h88;
+else if (byte_i==8'hC5)
+  subsByte_o = 8'h7;
+else if (byte_i==8'hC6)
+  subsByte_o = 8'hC7;
+else if (byte_i==8'hC7)
+  subsByte_o = 8'h31;
+else if (byte_i==8'hC8)
+  subsByte_o = 8'hB1;
+else if (byte_i==8'hC9)
+  subsByte_o = 8'h12;
+else if (byte_i==8'hCA)
+  subsByte_o = 8'h10;
+else if (byte_i==8'hCB)
+  subsByte_o = 8'h59;
+else if (byte_i==8'hCC)
+  subsByte_o = 8'h27;
+else if (byte_i==8'hCD)
+  subsByte_o = 8'h80;
+else if (byte_i==8'hCE)
+  subsByte_o = 8'hEC;
+else if (byte_i==8'hCF)
+  subsByte_o = 8'h5F;
+else if (byte_i==8'hD0)
+  subsByte_o = 8'h60;
+else if (byte_i==8'hD1)
+  subsByte_o = 8'h51;
+else if (byte_i==8'hD2)
+  subsByte_o = 8'h7F;
+else if (byte_i==8'hD3)
+  subsByte_o = 8'hA9;
+else if (byte_i==8'hD4)
+  subsByte_o = 8'h19;
+else if (byte_i==8'hD5)
+  subsByte_o = 8'hB5;
+else if (byte_i==8'hD6)
+  subsByte_o = 8'h4A;
+else if (byte_i==8'hD7)
+  subsByte_o = 8'hD;
+else if (byte_i==8'hD8)
+  subsByte_o = 8'h2D;
+else if (byte_i==8'hD9)
+  subsByte_o = 8'hE5;
+else if (byte_i==8'hDA)
+  subsByte_o = 8'h7A;
+else if (byte_i==8'hDB)
+  subsByte_o = 8'h9F;
+else if (byte_i==8'hDC)
+  subsByte_o = 8'h93;
+else if (byte_i==8'hDD)
+  subsByte_o = 8'hC9;
+else if (byte_i==8'hDE)
+  subsByte_o = 8'h9C;
+else if (byte_i==8'hDF)
+  subsByte_o = 8'hEF;
+else if (byte_i==8'hE0)
+  subsByte_o = 8'hA0;
+else if (byte_i==8'hE1)
+  subsByte_o = 8'hE0;
+else if (byte_i==8'hE2)
+  subsByte_o = 8'h3B;
+else if (byte_i==8'hE3)
+  subsByte_o = 8'h4D;
+else if (byte_i==8'hE4)
+  subsByte_o = 8'hAE;
+else if (byte_i==8'hE5)
+  subsByte_o = 8'h2A;
+else if (byte_i==8'hE6)
+  subsByte_o = 8'hF5;
+else if (byte_i==8'hE7)
+  subsByte_o = 8'hB0;
+else if (byte_i==8'hE8)
+  subsByte_o = 8'hC8;
+else if (byte_i==8'hE9)
+  subsByte_o = 8'hEB;
+else if (byte_i==8'hEA)
+  subsByte_o = 8'hBB;
+else if (byte_i==8'hEB)
+  subsByte_o = 8'h3C;
+else if (byte_i==8'hEC)
+  subsByte_o = 8'h83;
+else if (byte_i==8'hED)
+  subsByte_o = 8'h53;
+else if (byte_i==8'hEE)
+  subsByte_o = 8'h99;
+else if (byte_i==8'hEF)
+  subsByte_o = 8'h61;
+else if (byte_i==8'hF0)
+  subsByte_o = 8'h17;
+else if (byte_i==8'hF1)
+  subsByte_o = 8'h2B;
+else if (byte_i==8'hF2)
+  subsByte_o = 8'h4;
+else if (byte_i==8'hF3)
+  subsByte_o = 8'h7E;
+else if (byte_i==8'hF4)
+  subsByte_o = 8'hBA;
+else if (byte_i==8'hF5)
+  subsByte_o = 8'h77;
+else if (byte_i==8'hF6)
+  subsByte_o = 8'hD6;
+else if (byte_i==8'hF7)
+  subsByte_o = 8'h26;
+else if (byte_i==8'hF8)
+  subsByte_o = 8'hE1;
+else if (byte_i==8'hF9)
+  subsByte_o = 8'h69;
+else if (byte_i==8'hFA)
+  subsByte_o = 8'h14;
+else if (byte_i==8'hFB)
+  subsByte_o = 8'h63;
+else if (byte_i==8'hFC)
+  subsByte_o = 8'h55;
+else if (byte_i==8'hFD)
+  subsByte_o = 8'h21;
+else if (byte_i==8'hFE)
+  subsByte_o = 8'hC;
+else if (byte_i==8'hFF)
+  subsByte_o = 8'h7D;
+
+
+
+end
+endmodule

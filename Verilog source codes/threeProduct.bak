@@ -1,0 +1,21 @@
+module threeProduct(
+input reg [7:0] Byte_i,
+output reg [7:0] productByte_o
+);
+
+//3.Byte_i = (2.Byte_i) xor Byte_i
+
+reg [7:0] r;
+
+always@(*)
+begin
+	if (Byte_i<8'h79)
+		r = (Byte_i*8'h02);
+	else
+		r = (Byte_i*8'h02)^'h11B;
+end
+
+
+always@(*)
+	productByte_o = r^Byte_i;
+endmodule

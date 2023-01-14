@@ -1,0 +1,69 @@
+module mixVec(
+input reg [31:0] vec_i,
+output reg [31:0] mixVec_o
+);
+
+wire [7:0] w1;
+wire [7:0] w2;
+wire [7:0] w3;
+wire [7:0] w4;
+
+assign {w1,w2,w3,w4} = vec_i; 
+
+wire [7:0] o1;
+wire [7:0] o2;
+wire [7:0] o3;
+wire [7:0] o4;
+
+//o1
+wire [7:0] v1,v2;
+twoProduct tp1(
+.Byte_i(w1),
+.productByte_o(v1)
+);
+threeProduct thp1(
+.Byte_i(w2),
+.productByte_o(v2)
+);
+assign o1 = v1^v2^w3^w4;
+
+//o2
+wire [7:0] vv2,vv3;
+twoProduct tp2(
+.Byte_i(w2),
+.productByte_o(vv2)
+);
+threeProduct thp2(
+.Byte_i(w3),
+.productByte_o(vv3)
+);
+assign o2 = w1^vv2^vv3^w4;
+
+//o3
+wire [7:0] vvv3,vvv4;
+twoProduct tp3(
+.Byte_i(w3),
+.productByte_o(vvv3)
+);
+threeProduct thp3(
+.Byte_i(w4),
+.productByte_o(vvv4)
+);
+assign o3 = w1^w2^vvv3^vvv4;
+
+//o4
+wire [7:0] vvvv1,vvvv4;
+twoProduct tp4(
+.Byte_i(w4),
+.productByte_o(vvvv4)
+);
+threeProduct thp4(
+.Byte_i(w1),
+.productByte_o(vvvv1)
+);
+assign o4 = vvvv1^w2^w3^vvvv4;
+
+always@(*)
+	mixVec_o = {o1,o2,o3,o4};
+
+endmodule

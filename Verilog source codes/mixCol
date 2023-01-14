@@ -1,0 +1,38 @@
+module mixCol(
+input reg [127:0] mat_i,
+output reg [127:0] mixMat_o
+);
+
+wire [31:0] v1;
+wire [31:0] v2;
+wire [31:0] v3;
+wire [31:0] v4;
+
+assign {v1,v2,v3,v4} = mat_i; 
+
+wire [31:0] o1;
+wire [31:0] o2;
+wire [31:0] o3;
+wire [31:0] o4;
+
+mixVec mV1(
+.vec_i(v1),
+.mixVec_o(o1)
+);
+mixVec mV2(
+.vec_i(v2),
+.mixVec_o(o2)
+);
+mixVec mV3(
+.vec_i(v3),
+.mixVec_o(o3)
+);
+mixVec mV4(
+.vec_i(v4),
+.mixVec_o(o4)
+);
+
+always@(*)
+	mixMat_o = {o1,o2,o3,o4};
+
+endmodule

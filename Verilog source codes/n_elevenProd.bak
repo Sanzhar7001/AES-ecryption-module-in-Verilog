@@ -1,0 +1,28 @@
+module n_elevenProd(
+input reg [7:0] i_Byte,
+output reg [7:0] o_prodByte
+);
+
+wire [7:0] w1,w2,w3,w4;
+
+twoProduct tp1(
+.Byte_i(i_Byte),
+.productByte_o(w1)
+);
+
+twoProduct tp2(
+.Byte_i(w1),
+.productByte_o(w2)
+);
+
+assign w3 = w2^i_Byte;
+
+twoProduct tp3(
+.Byte_i(w3),
+.productByte_o(w4)
+);
+
+always@(*)
+	o_prodByte = w4^i_Byte;
+
+endmodule

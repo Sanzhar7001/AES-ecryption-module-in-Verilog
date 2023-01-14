@@ -1,0 +1,93 @@
+module KeyExp(
+input reg [127:0] Key_i,
+output reg [127:0] rnd1Key_o,
+output reg [127:0] rnd2Key_o,
+output reg [127:0] rnd3Key_o,
+output reg [127:0] rnd4Key_o,
+output reg [127:0] rnd5Key_o,
+output reg [127:0] rnd6Key_o,
+output reg [127:0] rnd7Key_o,
+output reg [127:0] rnd8Key_o,
+output reg [127:0] rnd9Key_o,
+output reg [127:0] rnd10Key_o
+);
+
+wire [127:0] o1;
+wire [127:0] o2;
+wire [127:0] o3;
+wire [127:0] o4;
+wire [127:0] o5;
+wire [127:0] o6;
+wire [127:0] o7;
+wire [127:0] o8;
+wire [127:0] o9;
+wire [127:0] o10;
+
+
+rndKey #(.RND_CONST(8'h01)) rnd1(
+.rndKey_i(Key_i),
+.newRndKey_o(o1)
+);
+
+rndKey #(.RND_CONST(8'h02)) rnd2(
+.rndKey_i(o1),
+.newRndKey_o(o2)
+);
+
+rndKey #(.RND_CONST(8'h04)) rnd3(
+.rndKey_i(o2),
+.newRndKey_o(o3)
+);
+
+rndKey #(.RND_CONST(8'h08)) rnd4(
+.rndKey_i(o3),
+.newRndKey_o(o4)
+);
+
+rndKey #(.RND_CONST(8'h01)) rnd5(
+.rndKey_i(o4),
+.newRndKey_o(o5)
+);
+
+rndKey #(.RND_CONST(8'h02)) rnd6(
+.rndKey_i(o5),
+.newRndKey_o(o6)
+);
+
+rndKey #(.RND_CONST(8'h04)) rnd7(
+.rndKey_i(o6),
+.newRndKey_o(o7)
+);
+
+rndKey #(.RND_CONST(8'h08)) rnd8(
+.rndKey_i(o7),
+.newRndKey_o(o8)
+);
+
+rndKey #(.RND_CONST(8'h01)) rnd9(
+.rndKey_i(o8),
+.newRndKey_o(o9)
+);
+
+rndKey #(.RND_CONST(8'h02)) rnd10(
+.rndKey_i(o9),
+.newRndKey_o(o10)
+);
+
+always@(*)
+begin
+	rnd1Key_o = o1;
+	rnd2Key_o = o2;
+	rnd3Key_o = o3;
+	rnd4Key_o = o4;
+	rnd5Key_o = o5;
+	rnd6Key_o = o6;
+	rnd7Key_o = o7;
+	rnd8Key_o = o8;
+	rnd9Key_o = o9;
+	rnd10Key_o = o10;
+end
+
+
+
+endmodule

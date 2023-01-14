@@ -1,0 +1,27 @@
+module n_thirteenProd(
+input reg [7:0] Byte_i,
+output reg [7:0] prodByte_o
+);
+
+wire [7:0] w1,w2,w3,w4;
+
+twoProduct tp1(
+.Byte_i(Byte_i),
+.productByte_o(w1)
+);
+assign w2 = w1^Byte_i;
+
+twoProduct tp2(
+.Byte_i(w2),
+.productByte_o(w3)
+);
+	
+twoProduct tp3(
+.Byte_i(w3),
+.productByte_o(w4)
+);
+
+always@(*)
+	prodByte_o = w4^Byte_i;
+
+endmodule

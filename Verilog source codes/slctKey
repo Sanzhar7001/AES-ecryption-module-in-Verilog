@@ -1,0 +1,53 @@
+module slctKey(
+input reg [3:0] counter,
+input reg [127:0] rnd1Key,
+input reg [127:0] rnd2Key,
+input reg [127:0] rnd3Key,
+input reg [127:0] rnd4Key,
+input reg [127:0] rnd5Key,
+input reg [127:0] rnd6Key,
+input reg [127:0] rnd7Key,
+input reg [127:0] rnd8Key,
+input reg [127:0] rnd9Key,
+input reg [127:0] rnd10Key,
+output reg [127:0] rndKey
+);
+
+
+//numbers are shifted because rndKey changed together 
+//with counter, 
+always@(*)
+begin
+	if (counter == 4'd1)
+		rndKey = rnd1Key;
+
+	else if (counter == 4'd2)
+		rndKey = rnd2Key;
+
+	else if (counter == 4'd3)
+		rndKey = rnd3Key;
+
+	else if (counter == 4'd4)
+		rndKey = rnd4Key;
+
+	else if (counter == 4'd5)
+		rndKey = rnd5Key;
+
+	else if (counter == 4'd6)
+		rndKey = rnd6Key;
+
+	else if (counter == 4'd7)
+		rndKey = rnd7Key;
+
+	else if (counter == 4'd8)
+		rndKey = rnd8Key;
+
+	else if (counter == 4'd9)
+		rndKey = rnd9Key;
+
+	else if (counter == 4'd10)
+		rndKey = rnd10Key;	
+end
+
+
+endmodule
